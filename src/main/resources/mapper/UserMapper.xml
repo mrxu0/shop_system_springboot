@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.system.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.shop.system.model.domain.User" ></resultMap>
+
+    <sql id="Base_Column_List" >
+        user_id, user_name, password, phone, brith_day
+    </sql>
+
+    <select id="getPhone" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM users WHERE phone = #{phone}
+    </select>
+</mapper>
