@@ -1,0 +1,27 @@
+
+#配置端口号
+server:
+  port: 8089
+
+#热部署生效
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java #设置重启的目录
+  datasource: #mybatis 配置
+    url: jdbc:mysql://localhost:3306/shop_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml #这个必须配置，否则无法跟 xml 文件关联起来
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 输出 mybatis-plus 日记
+
+# 自定义404, 他会跟 swagger 产生冲突，所以这种方案处理 404 存在问题
+#出现错误时, 直接抛出异常
+# spring.mvc.throw-exception-if-no-handler-found=true
+#不要为我们工程中的资源文件建立映射
+#spring.resources.add-mappings=false
