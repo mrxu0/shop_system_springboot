@@ -10,9 +10,9 @@ spring:
       enabled: true
       additional-paths: src/main/java #设置重启的目录
   datasource: #mybatis 配置
-    url: jdbc:mysql://localhost:3306/shop_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
-    username: root
-    password: root
+    url: jdbc:mysql://106.12.213.98:3306/shop_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: shop_system
+    password: shop_system
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis-plus:

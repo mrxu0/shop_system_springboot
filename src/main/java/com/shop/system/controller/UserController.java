@@ -5,6 +5,7 @@ import com.shop.system.common.resp.Response;
 import com.shop.system.constants.ApiVersion;
 import com.shop.system.constants.Urls;
 import com.shop.system.model.domain.User;
+import com.shop.system.model.dto.PwdLoginDTO;
 import com.shop.system.model.dto.UserDTO;
 import com.shop.system.service.UserService;
 import com.shop.system.utils.JWTUtil;
@@ -26,10 +27,10 @@ public class UserController {
 
     @ApiOperation("登录")
     @PostMapping(ApiVersion.API_VERSION_1 + Urls.LOGIN)
-    public Response<UserDTO> login(@RequestParam("phone") Integer phone, @RequestParam("password") String password) {
-        User user = userService.getPhone(phone);
-        if (user.getPassword().equals(password)) {
-            return new Response(new UserDTO(JWTUtil.sign(phone, password), user));
+    public Response<UserDTO> login(@RequestBody PwdLoginDTO pwdLoginDTO) {
+        User newUser = userService.getPhone(pwdLoginDTO.getPhone());
+        if (pwdLoginDTO.getPassword().equals(pwdLoginDTO.getPassword())) {
+            return new Response(new UserDTO(JWTUtil.sign(pwdLoginDTO.getPhone(), pwdLoginDTO.getPassword()), newUser));
         } else {
             return new Response().setMessage("用户名或密码错误");
         }
