@@ -6,6 +6,7 @@ import com.shop.system.constants.ApiVersion;
 import com.shop.system.constants.Urls;
 import com.shop.system.model.domain.User;
 import com.shop.system.model.dto.PwdLoginDTO;
+import com.shop.system.model.dto.RegisterDTO;
 import com.shop.system.model.dto.UserDTO;
 import com.shop.system.service.UserService;
 import com.shop.system.utils.JWTUtil;
@@ -38,7 +39,8 @@ public class UserController {
 
     @ApiOperation("注册")
     @PostMapping(ApiVersion.API_VERSION_1 + Urls.REGISTER)
-    public Response<UserDTO> register(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+    public Response<UserDTO> register(@RequestBody RegisterDTO registerDTO) {
+        userService.register(registerDTO);
         return new Response().setMessage("注册成功");
     }
 

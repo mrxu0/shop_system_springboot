@@ -18,14 +18,17 @@ import java.util.Date;
 public class User extends Entity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId
     @TableField("user_id")
     @ApiModelProperty("用户 id")
-    private String userId;
+    private Long userId;
 
     @TableField("user_name")
     @ApiModelProperty("用户名")
     private String userName;
+
+    @TableField("nick_name")
+    @ApiModelProperty("昵称")
+    private String nickName;
 
     @ApiModelProperty("密码")
     @Length(min = 6, max = 20, message = "输入的长度不合法，应在 6-20 之间")
@@ -48,6 +51,6 @@ public class User extends Entity implements Serializable {
 
     @ApiModelProperty("电话")
     @Length(min = 11, max = 11, message = "长度为 11 为")
-    private Integer phone;
+    private String phone;
 
 }

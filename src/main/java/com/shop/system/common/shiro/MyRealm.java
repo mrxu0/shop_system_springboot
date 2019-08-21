@@ -37,7 +37,7 @@ public class MyRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        Integer phone = JWTUtil.getPhone(principals.toString());
+        String phone = JWTUtil.getPhone(principals.toString());
         User user = userService.getPhone(phone);
         if (user != null) {
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
@@ -58,7 +58,7 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken auth) throws AuthenticationException {
         String token = (String) auth.getCredentials();
         // 解密获得username，用于和数据库进行对比
-        Integer phone = JWTUtil.getPhone(token);
+        String phone = JWTUtil.getPhone(token);
         if (phone == null) {
             throw new AuthenticationException("token invalid");
         }

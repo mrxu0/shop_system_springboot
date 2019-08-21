@@ -20,7 +20,7 @@ public class JWTUtil {
      * @param secret 用户的密码
      * @return 是否正确
      */
-    public static boolean verify(String token, Integer phone, String secret) {
+    public static boolean verify(String token, String phone, String secret) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             JWTVerifier verifier = JWT.require(algorithm)
@@ -37,10 +37,10 @@ public class JWTUtil {
      * 获得token中的信息无需secret解密也能获得
      * @return token中包含的用户名
      */
-    public static Integer  getPhone(String token) {
+    public static String getPhone(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("phone").asInt();
+            return jwt.getClaim("phone").asString();
         } catch (JWTDecodeException e) {
             return null;
         }
@@ -52,7 +52,7 @@ public class JWTUtil {
      * @param secret 用户的密码
      * @return 加密的token
      */
-    public static String sign(Integer phone, String secret) {
+    public static String sign(String phone, String secret) {
         try {
             Date date = new Date(System.currentTimeMillis()+EXPIRE_TIME);
             Algorithm algorithm = Algorithm.HMAC256(secret);

@@ -7,6 +7,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface UserMapper extends BaseMapper<User> {
-//public interface UserMapper {
-    User getPhone(Integer phone);
+    User getPhone(String phone);
 }

@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.shop.system.model.domain.User" ></resultMap>
 
     <sql id="Base_Column_List" >
-        user_id, user_name, password, phone, brith_day
+        user_id, user_name, password, phone, brith_day, nick_name, created_date
     </sql>
 
     <select id="getPhone" resultMap="BaseResultMap"  >
