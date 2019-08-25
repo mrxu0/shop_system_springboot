@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SpringBootConfiguration
+//@SpringBootConfiguration
 public class AdminLoginAdapter extends WebMvcConfigurerAdapter {
 
     @Autowired

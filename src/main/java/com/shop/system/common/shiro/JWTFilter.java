@@ -59,6 +59,10 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
             } catch (Exception e) {
                 response401(request, response);
             }
+        } else {
+            // 没有传 Authorization 字段的用户默认为 tour 角色
+            JWTToken token = new JWTToken("authorization");
+            getSubject(request, response).login(token);
         }
         return true;
     }

@@ -32,7 +32,7 @@ public class Shop extends Entity implements Serializable {
     private String originalPrice;
 
     @ApiModelProperty("商品描述")
-    private Integer des;
+    private String des;
 
     @ApiModelProperty("显示图片")
     @TableField("show_img")

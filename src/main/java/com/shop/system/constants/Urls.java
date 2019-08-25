@@ -16,4 +16,9 @@ public class Urls {
     // 商品模块 结束
 
 
+    // 权限模块 开始
+    public static final String SHIRO_RELOAD = "/shiro/reload"; // 商品列表
+    // 权限模块 结束
+
+
 }

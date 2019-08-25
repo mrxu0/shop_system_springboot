@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.system.mapper.PermissionMapper" >
+<!--    <resultMap id="BaseResultMap" type="com.shop.system.model.domain.Permission" ></resultMap>-->
+    <resultMap id="BaseResultMap" type="String" ></resultMap>
+
+    <sql id="Base_Column_List" >
+        name
+    </sql>
+
+    <select id="getListByRoleId" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM permissions WHERE permission_id IN
+        (SELECT permission_id  FROM roles_permissions_relation WHERE role_id=#{id})
+    </select>
+</mapper>

@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class Entity{
 
-    @ApiModelProperty("状态:-1 删除，0 正常")
+    @ApiModelProperty("状态:0 删除，1 正常")
     private Integer status;
 
     @ApiModelProperty("创建日期")
