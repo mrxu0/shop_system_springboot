@@ -34,6 +34,7 @@ public class ShopController {
     @ApiOperation("添加商品")
     @PostMapping(ApiVersion.API_VERSION_1 + Urls.SHOPS)
     public Response addShop(@Valid @RequestBody Shop shop) {
+//        shopService
         return new Response().setMessage("添加成功");
     }
 
