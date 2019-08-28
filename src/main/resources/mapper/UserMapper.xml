@@ -12,4 +12,5 @@
         <include refid="Base_Column_List" />
         FROM users WHERE phone = #{phone}
     </select>
+
 </mapper>
